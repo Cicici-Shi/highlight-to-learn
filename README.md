@@ -3,7 +3,7 @@
 > **读文章、看视频时，选中任意一句就问 AI —— 带着整篇上下文，就地讲清。**
 > Reading or watching anything? **Select any line and ask AI** — context-aware, right where you are. Auto notes, optional bilingual subtitles, all on your Claude subscription (no API key).
 
-把任何 YouTube 视频、播客、文章变成**能对话、能精读、能复习**的材料：看到不懂的（一个词、一句话、一个梗）**划一下直接问**，AI 带着整篇上下文讲给你听。内容是外语？**双语字幕逐句对照 + 生词标注**帮你读下去。中文内容也一样能边读边问。全程走 **Claude 订阅 CLI**，**零 API 花费**。
+把任何 YouTube 视频、播客、文章变成**能对话、能精读、能复习**的材料：看到不懂的（一个词、一句话、一个梗）**划一下直接问**，AI 带着整篇上下文讲给你听。内容是外语？**双语字幕逐句对照 + 生词标注**帮你读下去。全程走 **Claude 订阅 CLI**，**零 API 花费**。
 
 > Turn any video, podcast, or article into something you can read, question, and review. Select any line for a context-aware explanation, auto per-chapter notes, and — for foreign-language content — line-by-line bilingual subtitles with vocabulary glossing. Works for native-language reading too. All through your existing Claude subscription, **no API key needed**.
 
