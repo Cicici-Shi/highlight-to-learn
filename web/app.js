@@ -1133,8 +1133,8 @@ document.addEventListener("keydown", (e) => {
   if (!e.shiftKey || !player || !playerReady) return;
   const t = e.target;
   if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
-  const up = e.key === ">" || e.key === ".";
-  const down = e.key === "<" || e.key === ",";
+  const up = e.code === "Period";   // Shift+. 加速（用物理键码，避开布局 / 输入法差异）
+  const down = e.code === "Comma";  // Shift+, 减速
   if (!up && !down) return;
   e.preventDefault();
   const cur = player.getPlaybackRate ? player.getPlaybackRate() : 1;
