@@ -1,7 +1,7 @@
 [project]
-name = "transcript-qa"
+name = "highlight-to-learn"
 version = "0.1.0"
-description = "选中即问的字幕理解工具 — 抽取 transcript，前端渲染，选中文字针对性提问（走订阅 CLI，零 API 花费）"
+description = "看视频 / 读文章学习：选中即问 AI、自动笔记、双语字幕。走订阅 CLI，零 API 花费。"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115",

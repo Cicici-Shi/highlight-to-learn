@@ -41,6 +41,9 @@
         <div class="set-row">
           <label class="set-check"><input type="checkbox" id="subtitle-toggle" /> 逐句双语对照（字幕式）</label>
         </div>
+        <div class="set-row">
+          <label class="set-check"><input type="checkbox" id="hide-video-toggle" /> 隐藏视频（保留播放控制）</label>
+        </div>
         <div id="read-toolbar" class="read-toolbar" hidden>
           <div class="seg-toggle">
             <button id="mode-raw" class="active">原文</button>
@@ -52,7 +55,10 @@
 
       <div class="sidebar-head">
         <span class="summary-title">./notes</span>
-        <button id="summary-refresh" class="icon-btn ghost-dark" title="重新生成">↻</button>
+        <span class="head-btns">
+          <button id="notes-export" class="icon-btn ghost-dark" title="导出 Markdown">⤓</button>
+          <button id="summary-refresh" class="icon-btn ghost-dark" title="重新生成">↻</button>
+        </span>
       </div>
       <div id="summary-body" class="summary-body">
         <div class="sidebar-empty">$ 等待输入源…<br/>点右上 ⚙ 粘贴链接或上传文件。</div>
@@ -89,7 +95,7 @@
           <div id="speaker-bar" class="speaker-bar" hidden></div>
 
           <div id="transcript" class="transcript empty">
-            <pre class="boot">transcript-qa v0.1.0  ·  opus-4.8
+            <pre class="boot">highlight-to-learn v0.1.0  ·  opus-4.8
 [ok] runtime ready
 [ok] cache warm
 [--] no source loaded

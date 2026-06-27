@@ -120,6 +120,7 @@ function onIngested(data) {
   renderChat(data.chat || []); // 刷新后恢复历史问答
   $("settings-pop").hidden = true; // 导入后收起设置浮层
   mountVideo(data.video_id); // YouTube 源 → 嵌入吸顶播放器并联动；其他源自动隐藏
+  applyHideVideo(); // 恢复「隐藏视频」开关
 
   // 命中缓存（同一视频/文件之前导入过）→ 直接复用章节/说话人，无需重算
   const hasCachedChapters = data.chapters && data.chapters.length;
@@ -617,6 +618,12 @@ function applyRate(r) {
   LS.set("tq.rate", String(r));
 }
 
+function applyHideVideo() {
+  const hv = LS.get("tq.hidevideo") === "1";
+  $("hide-video-toggle").checked = hv;
+  $("video-pane").classList.toggle("user-hidden", hv);
+}
+
 // 按视频 id 记/取播放位置
 function savePos() {
   if (state.videoId && player && player.getCurrentTime) LS.set("tq.pos." + state.videoId, Math.floor(player.getCurrentTime()));
@@ -678,7 +685,8 @@ function syncNotes(idx) {
   if (ci < 0) return;
   if (ci !== lastNoteCh) {
     document.querySelectorAll(".chap-card.active").forEach((e) => e.classList.remove("active"));
-    document.querySelector(`.chap-card[data-chapter="${ci}"]`)?.classList.add("active");
+    const c = document.querySelector(`.chap-card[data-chapter="${ci}"]`);
+    if (c) { c.classList.add("active"); if (Date.now() > userScrollUntil) scrollNotesCenter(c); }
     lastNoteCh = ci;
   }
   const card = document.querySelector(`.chap-card[data-chapter="${ci}"]`);
@@ -1150,6 +1158,31 @@ $("subtitle-toggle").addEventListener("change", (e) => {
   renderTranscript(); // 切换粒度（逐句 ↔ 段落）
   if (state.subtitleMode || state.translateMode) ensureTranslated();
 });
+$("hide-video-toggle").addEventListener("change", (e) => {
+  LS.set("tq.hidevideo", e.target.checked ? "1" : "0");
+  $("video-pane").classList.toggle("user-hidden", e.target.checked);
+});
+$("notes-export").addEventListener("click", exportNotesMd);
+
+// 把章节笔记拼成 Markdown 下载
+function exportNotesMd() {
+  if (!state.chapters.length) { setStatus("还没有笔记可导出", "error"); return; }
+  let md = `# ${document.title || "notes"}\n\n`;
+  state.chapters.forEach((ch) => {
+    md += `## ${ch.start_ts ? `[${ch.start_ts}] ` : ""}${ch.title}\n\n`;
+    if (ch.gist) md += `> ${ch.gist}\n\n`;
+    (ch.points || []).forEach((p) => {
+      md += `- ${p.text}${p.ts ? ` _(${p.ts})_` : ""}\n`;
+      (p.details || []).forEach((d) => { md += `  - ${d.text}\n`; });
+    });
+    md += "\n";
+  });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([md], { type: "text/markdown" }));
+  a.download = `notes-${state.videoId || "doc"}.md`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
 
 // 空格键控制视频播放/暂停（在输入框里打字时不拦截）
 document.addEventListener("keydown", (e) => {

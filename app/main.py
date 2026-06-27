@@ -17,7 +17,7 @@ from . import ingest, llm, prompts, store
 
 WEB_DIR = Path(__file__).resolve().parent.parent / "web"
 
-app = FastAPI(title="Transcript Q&A")
+app = FastAPI(title="highlight-to-learn")
 
 
 @app.middleware("http")
