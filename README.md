@@ -1,11 +1,11 @@
 # highlight-to-learn
 
-> **看懂任何视频 / 文章 —— 划中任意一句，AI 立刻带上下文给你讲。**
-> Understand any video or article with AI — bilingual subtitles, auto notes, and **select any line to ask**. Zero API cost; runs on your Claude subscription.
+> **读文章、看视频时，选中任意一句就问 AI —— 带着整篇上下文，就地讲清。**
+> Reading or watching anything? **Select any line and ask AI** — context-aware, right where you are. Auto notes, optional bilingual subtitles, all on your Claude subscription (no API key).
 
-把一段 YouTube 讲座、播客或英文文章，变成**能对话、能精读、能复习**的学习材料。英语没那么好也不怕：双语字幕逐句对照、生词自动标注、看不懂的地方**划一下就问 AI**。全程走你已登录的 **Claude 订阅 CLI**，**不花一分 API 钱**。
+把任何 YouTube 视频、播客、文章变成**能对话、能精读、能复习**的材料：看到不懂的（一个词、一句话、一个梗）**划一下直接问**，AI 带着整篇上下文讲给你听。内容是外语？**双语字幕逐句对照 + 生词标注**帮你读下去。中文内容也一样能边读边问。全程走 **Claude 订阅 CLI**，**零 API 花费**。
 
-> Turn any English video/article into study material you can read, question, and review. Bilingual line-by-line subtitles, automatic vocabulary glossing, per-chapter notes, and one-keystroke "explain this" on anything you select — all through your existing Claude subscription, **no API key needed**.
+> Turn any video, podcast, or article into something you can read, question, and review. Select any line for a context-aware explanation, auto per-chapter notes, and — for foreign-language content — line-by-line bilingual subtitles with vocabulary glossing. Works for native-language reading too. All through your existing Claude subscription, **no API key needed**.
 
 ---
 
@@ -18,8 +18,9 @@
 - ▶️ **视频联动 · Synced player** — 吸顶播放器，字幕跟播放高亮滚动；点字幕 / 笔记跳转；倍速、进度、上次播放位置全部记忆。
 - 💬 **持续对话 · Persistent chat** — 问答整条留存、刷新不丢；一键「新对话」开全新会话，省掉长上下文的开销。
 - 💸 **零 API 花费 · Free** — 问答 / 翻译 / 笔记全部通过 `claude -p` 走你的 Claude 订阅，不需要 API key。
+- 🖥️ **终端风界面（可隐身）· Terminal-style, low-key** — 整个界面长得像在敲命令行：等宽字体、深色、`$` 提示符、日志式排版。开「隐藏视频」后基本是纯文本，**别人路过一眼看不出你在看视频/学习，还以为你在正经写代码**。
 
-适合：**用英文视频自学**的人、想**精读外语内容**的语言学习者、需要把长讲座**快速变笔记**的学生与研究者。
+适合：**边看边学**的自学者、想**精读中英文内容**的人、把长视频/文章**快速变笔记**的学生与研究者，以及**想低调摸鱼学习**的打工人。
 
 ---
 
