@@ -116,7 +116,7 @@ function onIngested(data) {
   $("mode-raw").classList.add("active");
   $("mode-clean").classList.remove("active");
   const srcLabel = data.video_id || data.title || "source";
-  $("doc-title").textContent = `▸ ${srcLabel} · ${data.segments.length} segments`;
+  $("doc-title").textContent = `▸ ${srcLabel}`;
   renderChat(data.chat || []); // 刷新后恢复历史问答
   $("settings-pop").hidden = true; // 导入后收起设置浮层
   mountVideo(data.video_id); // YouTube 源 → 嵌入吸顶播放器并联动；其他源自动隐藏
